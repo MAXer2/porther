@@ -14,11 +14,6 @@ import mysql.connector
 from mysql.connector import MySQLConnection, Error
 
 
-server.debug = True
-
-server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
-
-
 bot = telebot.TeleBot('5220624851:AAGYx7fmi8z_32lGeydTm79HbaJc5TKi20E')
 
 mydb = mysql.connector.connect(
@@ -90,5 +85,10 @@ try:
 
 except Exception as e:
     print('ошибка')
+
+
+if __name__ == '__main__':
+    server.debug = True
+    server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
 
 bot.polling()
